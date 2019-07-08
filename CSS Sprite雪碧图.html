@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><title>CSS Sprite雪碧图</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="css-sprite雪碧图">CSS Sprite雪碧图</h2>
+
+
+
+<h3 id="1什么是css-sprite">1.什么是CSS Sprite</h3>
+
+<p>CSS Sprites也叫css精灵，是一种网页图片应用处理方式。它是将所有被用到的小图片全部放在一张大图中，然后用背景定位属性进行控制要显示的图片，这样加载网页的时候只需对图片请求一次即可。</p>
+
+
+
+<h3 id="2为什么需要使用css-sprite雪碧图">2.为什么需要使用CSS Sprite雪碧图</h3>
+
+<p>因为一个网页中，往往包含许多小图标，而这些小图标都是一个个image组成的，当我们加载网页的时候，如果这个页面有一百个小图标，那么浏览器就需要向服务器发送一百次http请求，因为每请求一次就会和服务器链接一次，耗时严重，对用户访问网页不友好，这时如果考虑将小图片合并成一张大图</p>
+
+
+
+<h3 id="3实现原理">3.实现原理</h3>
+
+<ul><li><p>利用<code>background-position</code>在一张大图中定位裁剪出我们需要的一部分，然后用这个部分当做单个的图片使用。</p></li>
+<li><p>它是以图片的左上角为圆点坐标，两个参数分别是x，y轴坐标起始点，</p></li>
+</ul>
+
+
+
+<h3 id="4-什么时候用雪碧图">4. 什么时候用雪碧图</h3>
+
+<ol><li rel="1"><p>静态图片不随用户信息的变化而变化</p></li>
+<li rel="2"><p>小图片，图片容量比较小</p></li>
+<li rel="3"><p>加载量比较大</p>
+
+<ul>
+<li><p>一些大图不建议拼成雪碧图</p></li></ul></li>
+</ol>
+
+
+
+<h3 id="用雪碧图的优点">用雪碧图的优点</h3>
+
+<ul><li><p>有效减少http请求数量，加速内容显示。因为每请求一次，就会和服务器链接一次，建立链接是需要额外时间的</p></li>
+</ul>
+
+
+
+<h3 id="tips">Tips</h3>
+
+<ul><li><p>制作雪碧图时，建议先想好每个小图标的大小再制作雪碧图，因为在css中调整一个图片的大小并不是很方便。</p></li>
+<li><p>在线制作雪碧图时，会自动生成代码，在实际体验中，这些代码可以供我们参考，实际应用中还需要我们自己做细微的调整</p></li>
+<li><p>调整时，利用chrome下的控制台去做细微调整</p></li>
+</ul></div></body></html>
