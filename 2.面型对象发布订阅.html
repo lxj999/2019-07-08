@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function EventFire(){}
+        function fn(){
+            console.log(100);
+        }
+        EventFire.prototype.on=function(type,fn){
+            if(!this[type]){
+                this[type]=[];
+            }
+            let ary=this[type];
+            ary.indexOf(fn)===-1?ary.push(fn):null;
+            return this;
+        }
+        EventFire.prototype.emit=function(type){
+            let ary=this[type];
+            if(ary){
+                for(let i=0;i<ary.length;i++){
+                    if(typeof ary[i]==="function"){
+                        ary[i].call(this);
+                    }
+                }
+            }
+            return this;
+        }
+        EventFire.prototype.off=function(type,fn){
+            let ary=this[type];
+            for(let i=0;i<ary.length;i++){
+                if(ary[i]===fn){
+                    ary[i]=null;
+                    return this;
+                }
+            }
+        }
+        new EventFire().on("food",fn)
+    </script>
+</body>
+</html>
