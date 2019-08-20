@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #box,#box1{
+            width:100px;
+            height:100px;
+            background:red;
+            border-radius:50%;
+            position: absolute;
+        }
+        #box1{
+            top:200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box1"></div>
+    <script>
+        function Drag(ele) {
+            this.ele=ele;
+            this.ele.onmousedown=this.down.bind(this);
+        }
+        Drag.prototype.down=function(e){
+            this.l=parseFloat(getComputedStyle(this.ele).left);
+            this.t=parseFloat(getComputedStyle(this.ele).top);
+            this.x=e.clientX;
+            this.y=e.clientY;
+            document.onmousemove=this.move.bind(this);
+            document.onmouseup=this.up.bind(this);
+        }
+        Drag.prototype.move=function(e){
+            let changeX=e.clientX-this.x;
+            let changeY=e.clientY-this.y;
+            this.ele.style.left=this.l+changeX+"px";
+            this.ele.style.top=this.t+changeY+"px";
+        }
+        Drag.prototype.up=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+        }
+        new Drag(box)
+        new Drag(box1)
+    </script>
+</body>
+</html>
