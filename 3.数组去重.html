@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let obj={a:1,b:2,c:3,d:4}
+        // let newAry=new Set(ary);
+        // let ary1=[...newAry];
+        // console.log(ary1)
+        // let s=new Set();
+        // s.add(10)
+        // s.add(12)
+        // s.clear();
+        // s.delete(10)
+        // console.log(s)
+        // for(let key of obj){
+            //     console.log(obj[key])
+            // }
+        // let ary=[1,2,3];
+        // console.log(ary.toString())
+        // let a=ary.map(parseFloat)
+        // console.log(ary)
+        // console.log(a)
+        // let res =function (a, b) {
+        //     return function (c) {
+        //         return a+b+c
+        //     }
+        // }
+        let p=new Promise(function(res,rej){
+            res();
+        })
+        p.then(function(...ary){
+            console.log(ary)
+        },function(){
+            console.log(100)
+        })
+    </script>
+</body>
+</html>
