@@ -1,0 +1,287 @@
+<!DOCTYPE html><html><head><title>珠峰培训CSS从入门到精通第六天</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style>.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="珠峰培训css从入门到精通第六天">珠峰培训CSS从入门到精通第六天</h1>
+
+
+
+<h2 id="1认识标准文档流及特性">1、认识标准文档流及特性</h2>
+
+<blockquote>
+  <p><strong>文档流</strong> 指的是元素在文档结构中的排列方式；  <br>
+  <strong>标准文档流</strong> 网页在解析的时候，遵循于从上向下，从左向右的一个顺序，而这个顺序就是来源于标准文档流；  <br>
+  <strong>脱离文档流：</strong>打破原本的从上到下，从左到右的排列方式，比如重叠 、叠加 、覆盖等非正常的文档流的排列布局情况；</p>
+</blockquote>
+
+
+
+<h2 id="2css中的三种基本的定位机制">2、CSS中的三种基本的定位机制</h2>
+
+<blockquote>
+  <p>CSS 有三种基本的定位机制：常规流、浮动和绝对定位。</p>
+</blockquote>
+
+
+
+<h3 id="1常规流">1）常规流</h3>
+
+<ul><li><p>除非专门指定，否则所有框都在普通流中定位。普通流中元素框的位置由元素在(X)HTML中的位置决定。块级元素<strong>从上到下</strong>依次排列，框之间的垂直距离由框的垂直margin计算得到。行内元素在一行中<strong>从左向右</strong>水平布置。</p></li>
+<li><p>常规流不脱离文档流。</p></li>
+<li><p>浮动、绝对定位和固定定位脱离文档流。</p></li>
+</ul>
+
+
+
+<h3 id="2浮动流">2）浮动流</h3>
+
+
+
+<h4 id="一浮动的基础语法">一、浮动的基础语法</h4>
+
+<blockquote>
+  <p><strong>浮动概念：</strong> float 属性指定一个盒子（元素）是否应该浮动。 <br>
+  **浮动特性： <br>
+  <strong>特性一：</strong>浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。 <br>
+  <strong>特性二：</strong>由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就像浮动框不存在一样。</p>
+</blockquote>
+
+<p><strong>浮动属性值</strong> </p>
+
+<ul><li><p>none：设置对象不浮动</p></li>
+<li><p>left：设置对象浮在左边</p></li>
+<li><p>right：设置对象浮在右边 <br>
+float 属性定义元素在哪个方向浮动。以往这个属性总应用于图像，使文本围绕在图像周围，不过在 CSS 中，任何元素都可以浮动。浮动元素会生成一个块级框，而不论它本身是何种元素。</p></li>
+</ul>
+
+
+
+<h4 id="二浮动应用图文环绕">二、浮动应用：图文环绕</h4>
+
+<p>float最初被设计的时候就是用来完成文字环绕的效果的。 <br>
+浮动元素后面的块级元素的内容会向此浮动元素的外边距靠齐，但是边框和背景却忽略浮动元素而向上一个（实例中为父元素）任意非浮动元素靠齐；</p>
+
+<p><strong>浮动特性</strong></p>
+
+<ul><li><p>块级元素浮动将并排显示，不再独占一行</p></li>
+<li><p>内联样式浮动将支持设置宽高</p></li>
+<li><p>浮动元素宽高由内容决定</p></li>
+<li><p>浮动元素脱离正常的文档流</p></li>
+<li><p>浮动元素提升半层级</p></li>
+<li><p>浮动不会继承也不会传递</p></li>
+<li><p>浮动元素之前的元素不会受当前浮动元素的影响，如果你想让两个块状元素并排显示，必须要让两个块状元素都应用float属性。</p></li>
+</ul>
+
+<p><strong>缺点</strong></p>
+
+<ul><li><p>会导致父元素的高度失效 值为0，后面的元素识别不了它的高度，就会往前占领它的位置；</p></li>
+</ul>
+
+
+
+<h3 id="3定位流">3）定位流</h3>
+
+<p>后续讲</p>
+
+
+
+<h2 id="3bfc与ifc">3、BFC与IFC</h2>
+
+<p><a href="https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank">https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html</a></p>
+
+<blockquote>
+  <p><strong>BFC的含义</strong></p>
+  
+  <ul><li><p>BFC（Block Formatting Context）叫做“块级格式化上下文”；</p></li>
+  </ul>
+  
+  <p><strong>BFC的表现原则</strong></p>
+  
+  <ul><li><p>如果一个元素具有BFC，内部子元素再怎么翻江倒海、翻云覆雨，都不会影响外部的元素。</p></li>
+  </ul>
+  
+  <p><strong>如何触发BFC</strong> <br>
+  <code>默认情况（普通文档流下）叫FC</code></p>
+  
+  <ul><li><p>1.我们的<code>html</code>根元素就是一个 BFC；</p></li>
+  <li><p>2.float的属性不为<code>none</code>；即值为<code>left</code>和<code>right</code>；</p></li>
+  <li><p>3.overflow为<code>auto</code>、<code>scroll</code>、<code>hidden</code>；</p></li>
+  <li><p>4.display为i<code>inline-block</code>，<code>table-cell</code>，<code>table-caption</code>中的任何一个可以触发<code>BFC</code>；</p></li>
+  <li><p>5.position为<code>absolute</code>或<code>fixed</code>时可以触发BFC；</p></li>
+  </ul>
+  
+  <p><strong>BFC布局规则</strong></p>
+  
+  <ul><li><p>1.内部的盒子会在垂直方向，一个个地放置；</p></li>
+  <li><p>2.盒子垂直方向的距离由margin决定，属于同一个BFC的两个相邻Box的上下margin会发生重叠；</p></li>
+  <li><p>3.每个元素的左边，与包含的盒子的左边相接触，即使存在浮动也是如- 此；</p></li>
+  <li><p>4.BFC的区域不会与float重叠；</p></li>
+  <li><p>5.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之也如此；</p></li>
+  <li><p>6.计算BFC的高度时，浮动元素也参与计算； <br>
+  **可以形成一个封闭的区域，它里面的内容不会影响到 <br>
+  外面的元素。 <br>
+  <strong>可以形成一个封闭的区域，它里面的内容不会影响到外面的元素。</strong></p></li>
+  </ul>
+  
+  </blockquote>
+
+
+<h2 id="3清除浮动方法-面试题">3、清除浮动方法 <code>（面试题）</code></h2>
+
+<p><strong>方法一：给父盒子加固定高度</strong></p>
+
+<blockquote>
+  <p>给前面浮动元素的父元素设置一个固定高度  <br>
+  <code>注意点: 实际项目开发中, 我们能不写高度就不写高度, 所以这种方式用得很少</code></p>
+</blockquote>
+
+<p><strong>方法二：清除浮动的方法之隔墙法与内墙法</strong></p>
+
+<blockquote>
+  <p><strong>外墙法 :</strong> 在两个盒子中间添加一个额外的块级元素 ，给这个额外添加的块级元素设置clear: both;属性  <br>
+  <code>注意点: 外墙法它可以让第二个盒子使用margin-top属性 ；外墙法不可以让第一个盒子使用margin-bottom属性</code> <br>
+  <strong>内墙法 :</strong> 在第一个盒子中所有子元素最后添加一个额外的块级元素 , 给这个额外添加的块级元素设置clear: both;属性  <br>
+  <code>注意点: 内墙法它可以让第二个盒子使用margin-top属性 , 内墙法它可以让第一个盒子使用margin-bottom属性</code></p>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs stylus"><div class="hljs-line"><span class="hljs-comment">// 具备两个条件:</span>
+</div><div class="hljs-line"><span class="hljs-comment">// 1.具有块特点的标签，就算不是块级标签也需要转换为块级标签</span>
+</div><div class="hljs-line"><span class="hljs-comment">// 2.给这个块级标签添加一个属性clear:both</span>
+</div><div class="hljs-line">&lt;<span class="hljs-selector-tag">div</span> class=<span class="hljs-string">"main"</span>&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-selector-tag">div</span> class=<span class="hljs-string">"right"</span>&gt;<span class="hljs-number">2</span>&lt;/div&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-selector-tag">div</span> class=<span class="hljs-string">"left"</span>&gt;<span class="hljs-number">1</span>&lt;/div&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-selector-tag">div</span> style=<span class="hljs-string">"clear:both;"</span>&gt;&lt;/div&gt;
+</div><div class="hljs-line">&lt;/div&gt;
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">&lt;<span class="hljs-selector-tag">div</span> class=<span class="hljs-string">"main"</span>&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-selector-tag">div</span> class=<span class="hljs-string">"right"</span>&gt;<span class="hljs-number">2</span>&lt;/div&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-selector-tag">div</span> class=<span class="hljs-string">"left"</span>&gt;<span class="hljs-number">1</span>&lt;/div&gt;
+</div><div class="hljs-line">    &lt;<span class="hljs-selector-tag">a</span> style=<span class="hljs-string">"display:block;clear:both;"</span>&gt;&lt;/a&gt;
+</div><div class="hljs-line">&lt;/div&gt;
+</div></code></pre>
+
+<p><strong>方法三：给父元素加overflow:hidden;</strong></p>
+
+<blockquote>
+  <ul><li><p>overflow : visible： 对溢出内容不做处理，内容可能会超出容器。</p>
+  
+  <ul><li><p>overflow : hidden： 隐藏溢出容器的内容且不出现滚动条。</p></li>
+  <li><p>overflow : scroll： 隐藏溢出容器的内容，溢出的内容将以卷动滚动条的方式呈现。</p></li>
+  <li><p>overflow : auto： 当内容没有溢出容器时不出现滚动条，当内容溢出容器时出现滚动条，按需出现滚动条。此为body对象和textarea的默认值。</p></li>
+  <li><p>overflow的效果等同于overflow-x + overflow-y。</p></li>
+  </ul>
+  
+  <p><strong>方法四：清除浮动的方法之clearfix法</strong> <br>
+  利用clearfix 去清除浮动(实际项目中最常用的方法)<code>我是一块砖 哪里需要 就往哪里搬</code></p></li>
+  </ul>
+</blockquote>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css"></span>
+</div><div class="hljs-line"><span class="css"><span class="hljs-selector-class">.clearfix</span><span class="hljs-selector-pseudo">:afer</span>{</span>
+</div><div class="hljs-line"><span class="css">    <span class="hljs-attribute">content</span>:<span class="hljs-string">''</span>;</span>
+</div><div class="hljs-line"><span class="css">    <span class="hljs-attribute">display</span>:block;</span>
+</div><div class="hljs-line"><span class="css">    <span class="hljs-attribute">clear</span>:both;</span>
+</div><div class="hljs-line"><span class="css">}</span>
+</div><div class="hljs-line"><span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main clearfix"</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main1 clearfix"</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"right"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"left"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line"><wbr>
+</div><div class="hljs-line">// 最完整clearfix清除浮动的方法：
+</div><div class="hljs-line">.clearfix:after{
+</div><div class="hljs-line">    content:'';
+</div><div class="hljs-line">    display:block;
+</div><div class="hljs-line">    clear:both;
+</div><div class="hljs-line">    width:0;
+</div><div class="hljs-line">    height:0;
+</div><div class="hljs-line">    line-height:0;
+</div><div class="hljs-line">    font-size:0;
+</div><div class="hljs-line">    visibility: hidden;
+</div><div class="hljs-line">    overflow:hidden;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">.clearfix{
+</div><div class="hljs-line">   zoom:1;
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h2 id="4css让元素消失在视野中发挥想象力面试题">4、CSS让元素消失在视野中发挥想象力(面试题)</h2>
+
+<ul><li><p>display: none 让元素消失</p></li>
+<li><p>font-size：0 字体大小为0</p></li>
+<li><p>width:0; overflow:hidden 宽度为0 而且溢出隐藏</p></li>
+<li><p>height:0; overflow:hidden 高度为0 而且溢出隐藏</p></li>
+<li><p>line-height:0; overflow:hidden 行高为0 而且溢出隐藏</p></li>
+<li><p>visibility: hidden; 可见性的元素隐藏消失</p></li>
+<li><p>opacity: 0; 透明度为0</p></li>
+<li><p>color / background: transparent 字体颜色或者背景颜色为透明</p></li>
+<li><p>text-indent: -9999px; 首段缩进足够大的负值</p></li>
+<li><p>position: absolute; left/top/bottom/right :-9999px; 定位 + 方位的足够大的负值</p></li>
+<li><p>margin-top/bottom/left/right: -9999px; 的四个方位的足够大的负值</p></li>
+<li><p>transform: translateX(-9999px) / translateY(-9999px); 位移坐标值足够大的负值</p></li>
+<li><p>transform: scale(0); 缩放比为0 </p></li>
+</ul>
+
+
+
+<h2 id="5单行文本和多行文本出现省略号的条件面试题">5、单行文本和多行文本出现省略号的条件(面试题)</h2>
+
+<ul><li><p>单行文本出现省略号的条件(四个)：</p>
+
+<ul>
+<li><p><code>width</code> 设置框的宽度</p></li>
+<li><p><code>white-space: nowrap;</code>  禁止文字内容折行</p></li>
+<li><p><code>overflow: hidden;</code> 超出部分溢出隐藏</p></li>
+<li><p><code>text-overflow: ellipsis;</code> 文字以省略号的方式隐藏</p></li></ul></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span>
+</div><div class="hljs-line"><span class="css"> <span class="hljs-selector-tag">p</span> {</span>
+</div><div class="hljs-line"><span class="css">     <span class="hljs-attribute">width</span>: <span class="hljs-number">200px</span>; <span class="hljs-comment">/*宽度*/</span></span>
+</div><div class="hljs-line"><span class="css">     <span class="hljs-attribute">white-space</span>: nowrap;<span class="hljs-comment">/*禁止文字内容折行*/</span></span>
+</div><div class="hljs-line"><span class="css">     <span class="hljs-attribute">overflow</span>: hidden;<span class="hljs-comment">/*超出部分溢出隐藏*/</span></span>
+</div><div class="hljs-line"><span class="css">     <span class="hljs-attribute">text-overflow</span>: ellipsis; <span class="hljs-comment">/*文字以省略号的方式隐藏*/</span></span>
+</div><div class="hljs-line"><span class="css"> }</span>
+</div><div class="hljs-line"><span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>单行文本出现省略号单行文本出现省略号单行文本出现省略号<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+
+<ul><li><p>多行文本出现省略号的条件(四个)：</p>
+
+<ul>
+<li><p><code>display: -webkit-box;</code> 弹性盒模型</p></li>
+<li><p><code>-webkit-box-orient: vertical;</code> 文字垂直排列 </p></li>
+<li><p><code>-webkit-line-clamp:2;</code> 文字显示的行数</p></li>
+<li><p><code>overflow: hidden;</code> 超出部分溢出隐藏</p></li></ul></li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs xml"><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css"></span>
+</div><div class="hljs-line"><span class="css"><span class="hljs-selector-tag">p</span> {</span>
+</div><div class="hljs-line"><span class="css">    <span class="hljs-attribute">display</span>: -webkit-box; <span class="hljs-comment">/* 弹性盒模型*/</span></span>
+</div><div class="hljs-line"><span class="css">    <span class="hljs-attribute">-webkit-box-orient</span>: vertical; <span class="hljs-comment">/* 文字垂直排列 */</span></span>
+</div><div class="hljs-line"><span class="css">    <span class="hljs-attribute">-webkit-line-clamp</span>:<span class="hljs-number">2</span>; <span class="hljs-comment">/*文字显示的行数*/</span></span>
+</div><div class="hljs-line"><span class="css">    <span class="hljs-attribute">overflow</span>: hidden; <span class="hljs-comment">/*超出部分溢出隐藏*/</span></span>
+</div><div class="hljs-line"><span class="css">}</span>
+</div><div class="hljs-line"><span class="css"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>多行文本出现省略号多行文本出现省略号多行文本出现省略号多行文本出现省略号<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre></div></body></html>
